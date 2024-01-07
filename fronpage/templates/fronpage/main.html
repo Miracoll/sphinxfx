@@ -1,0 +1,310 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ChaseTrade</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'frontpage/assets/img/logo.png' %}" rel="icon">
+  <link href="{% static 'frontpage/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'frontpage/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'frontpage/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'frontpage/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'frontpage/assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'frontpage/assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'frontpage/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'frontpage/assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'frontpage/assets/css/home.css' %}" rel="stylesheet">
+    <link href="{% static 'frontpage/assets/css/pagestyle.css' %}" rel="stylesheet">
+    <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
+
+<style type="text/css">
+ #main {
+  margin-top: 60px;
+}
+</style>
+</head>
+<body>
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      
+      <!-- <i class="bi bi-list toggle-sidebar-btn"></i> -->
+      <a data-target="mobile-demo" class="sidenav-trigger show-on-large ">
+        <span class="material-icons toggle-sidebar-btn" style="font-size: 33px;">menu</span>
+      </a>
+      <a href="{% url 'front-home' %}" class="logo d-flex align-items-center">
+        <span class=" d-sm-block" style="font-size: 1.5rem;">CHASETRADES</span>
+      </a>
+    </div><!-- End Logo -->
+
+
+
+    <nav class="header-nav ms-auto hide-on-med-and-down">
+      <ul class="d-flex align-items-center" style="margin-right:30px ;">
+
+        <li>
+          <a href="{% url 'signup' %}" class="btn" style="font-size:12px;"> CREATE ACCOUNT</a>
+        </li>
+
+
+      <li class="dropdown nav-item pe-4 ">
+        <a href="" class="" style="color:#000"><span class="d-none d-md-block ps-4">THEME </span></a> 
+            <ul style="text-align:center;">
+
+              <li><button style="border: none; text-align:center; background: transparent;" onclick="toggleTheme('dark');">DARK</button></li>
+              <li><button style="border: none; text-align:center; background: transparent;" onclick="toggleTheme('light');">LIGHT</button></li>
+            </ul>
+          </li>
+
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="{% static 'frontpage/assets/img/logo.png' %}" class="responsive-img" style="height: 19vh;">
+          </div>
+        </div>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-home' %}"><span class="material-icons notranslate">home</span>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'login' %}"><span class="material-icons notranslate">person_outline</span>
+          <span>Sign In</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'signup' %}"><span class="material-icons notranslate">person_add</span>
+          <span>Sign Up</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-contact' %}"><span class="material-icons notranslate">mail_outline</span>
+          <span>Contact Us</span>
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-doge' %}"><span class="material-icons notranslate">copyright</span>
+          <span>Dogecoin Mining</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-bitcoin' %}"><span class="material-icons notranslate">copyright</span>
+          <span>Bitcoin Mining</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-mining' %}"><span class="material-icons notranslate">copyright</span>
+          <span>About Mining</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-responsible' %}"><span class="material-icons notranslate">people</span>
+          <span>Responsible Trading</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-leverage' %}"><span class="material-icons notranslate">people</span>
+          <span>What is Leverage</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-copy' %}"><span class="material-icons notranslate">content_copy</span>
+          <span>Copy Expert Traders</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-option' %}"><span class="material-icons notranslate">donut_large</span>
+          <span>Options Trading</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-crypto' %}"><span class="material-icons notranslate">copyright</span>
+          <span>Crypto Trading</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-stock' %}"><span class="material-icons notranslate">insert_chart_outlined</span>
+          <span>Stocks Trading</span>
+        </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-forex' %}"><span class="material-icons notranslate">wysiwyg</span>
+          <span>Forex Trading</span>
+        </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-risk' %}"><span class="material-icons notranslate">folder_open</span>
+          <span>General Risk Disclosure</span>
+        </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-term' %}"><span class="material-icons notranslate">folder_open</span>
+          <span>Terms of Service</span>
+        </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-policy' %}"><span class="material-icons notranslate">lock_open</span>
+          <span>Privacy Policy</span>
+        </a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-cookie' %}"><span class="material-icons notranslate">lock_open</span>
+          <span>Cookie Policy</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-about' %}"><span class="material-icons notranslate">people</span>
+          <span>About Us</span>
+        </a>
+      </li>
+      
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+
+  <main id="main" class="main" style="min-height: 60vh;">
+
+        <!-- ======= Hero Section ======= -->
+  {% block content %}{% endblock content %}
+
+
+  </main><!-- End #main -->
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/64269bdf4247f20fefe90384/1gsrd1r8b';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+ <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+
+<center>
+  <div class="footer-top">
+      <div class="container" style="text-align:center;">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info" style="color:#ffffff;">
+            <a href="{% url 'front-home' %}" class="logo d-flex align-items-center" >
+              <img src="{% static 'frontpage/assets/img/logo.png' %}" alt=""> <br>
+            </a>
+            <h5>ChaseTrades</h5>
+            <p><span class="material-icons notranslate">mail</span>info@chasetradebroker.com</p>
+          </div>
+
+          <div class="col-lg-3 col-7 footer-links" >
+            <h6 class="white-text">Markets</h6>
+            <ul>
+              <li>  <a href="{% url 'front-forex' %}">Forex</a></li>
+              <li>  <a href="{% url 'front-crypto' %}">Crypto</a></li>
+              <li>  <a href="{% url 'front-stock' %}">Stocks</a></li>
+              <li>  <a href="{% url 'front-mining' %}">Mining</a></li>
+            </ul>
+          </div>
+          <!-- <div class="col-lg-2 col-6 footer-links">
+           
+          </div> -->
+
+          <div class="col-lg-3 col-7 footer-links">
+            <h6 class="white-text">Useful</h6>
+            <ul>
+              <li>  <a href="{% url 'front-about' %}">About Us</a></li>
+              <li>  <a href="{% url 'front-contact' %}">Contact Us</a></li>
+              <li>  <a href="{% url 'login' %}">My Account</a></li>
+              <li>  <a href="{% url 'signup' %}">Create Account</a></li>
+            </ul>
+          </div>
+
+         
+
+        </div>
+      </div>
+    </div>
+</center>
+
+    
+
+  
+  </footer><!-- End Footer -->
+
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'frontpage/assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'frontpage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'frontpage/assets/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'frontpage/assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'frontpage/assets/vendor/tinymce/tinymce.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'frontpage/assets/js/main.js' %}"></script>
+  <script src="{% static 'frontpage/assets/js/theme.js' %}"></script>
+
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 15290841;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/15290841/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
+</body>
+
+</html>

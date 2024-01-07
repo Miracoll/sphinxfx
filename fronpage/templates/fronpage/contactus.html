@@ -1,0 +1,83 @@
+{% extends 'fronpage/main.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header-2 d-flex align-items-center" style="background-image: url('{% static 'frontpage/assets/img/Hero5.jpg' %}');">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h1 class="center app-relative white-text">Contact Us</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+      <center>
+         <!-- Customers Card -->
+            <div class="col-xxl-4 col-xl-11" style="padding-top: 30px;">
+
+
+             
+
+
+            <div class="card">
+            <div class="card-body" style="padding: 20px 30px; text-align: left; color: #777777;">
+            
+                <!-- Floating Labels Form -->
+              <form class="row g-3" method="post">
+                {% csrf_token %}
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" name="name" class="form-control" id="floatingName" placeholder="Your Name">
+                    <label for="floatingName">Your Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Your Email">
+                    <label for="floatingEmail">Your Email</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" name="mobile" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Phone Number</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" name="subject" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Subject</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" name="message" id="floatingTextarea" style="height: 100px;"></textarea>
+                    <label for="floatingTextarea">Your Message Here...</label>
+                  </div>
+                </div>
+
+                <br>
+                <br>
+
+
+
+                
+                <div class="">
+                  <button type="submit" class="btn">Send Message</button>
+                </div>
+              </form><!-- End floating Labels Form -->
+               <br>
+                <br>
+
+              <p><b>Note:</b> We promise that we don't do spam &amp; your mail address is confidential.</p>
+
+            </div>
+          </div>
+
+            </center>
+
+ {% endblock content %}
