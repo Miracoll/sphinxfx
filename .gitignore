@@ -1,0 +1,8 @@
+#ignore directory
+/aws
+/media
+
+
+#ignore extension
+*.exe
+*.zip

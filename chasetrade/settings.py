@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!3=$m+rxj31at4j=$q+l=fby@sr_3wlwtd77t_(i!ahaz%7+72
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','54.198.124.67']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'rest_framework',
+    'storages',
 
     'account.apps.AccountConfig',
     'super.apps.SuperConfig',
@@ -125,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/chasetr2/public_html/static/'
+# STATIC_ROOT = '/home/chasetr2/public_html/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -134,8 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'account.User'
 
-MEDIA_ROOT = '/home/chasetr2/public_html/media'
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = '/home/chasetr2/public_html/media'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -154,3 +156,13 @@ PASSWORD_RESET_TIMEOUT = 14400      # 4 hrs
 MESSAGE_TAGS = {
     messages.ERROR:'danger',
 }
+
+AWS_ACCESS_KEY_ID = 'AKIA6GBMBREV6TB5CR5N'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'sphinxfx-bkt'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
