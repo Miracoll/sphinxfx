@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!3=$m+rxj31at4j=$q+l=fby@sr_3wlwtd77t_(i!ahaz%7+72
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','54.198.124.67']
+ALLOWED_HOSTS = ['127.0.0.1','54.198.124.67','sphinxfx.net','www.sphinxfx.net']
 
 
 # Application definition

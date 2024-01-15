@@ -43,7 +43,7 @@
             <tbody>
               {% for p in payment %}
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">{{forloop.counter}}</th>
                 <td>{{p.user.first_name}} {{p.user.last_name}}</td>
                 <td>{{p.payment_method}}</td>
                 <td>{{p.mode}}</td>

@@ -19,7 +19,7 @@ from super.models import Role, Trader, NewCoin, Crypto, Forex, StockList
 from datetime import datetime
 import pytz
 import requests
-from .functions import activateEmail, telegram
+from .functions import activateEmail, telegram, adminAlert
 from .tokens import account_activation_token
 
 
@@ -150,7 +150,7 @@ def payment(request,ref):
 
     date_datetime = date_datetime.replace(tzinfo=pytz.utc)
     current_datetime = current_datetime.replace(tzinfo=pytz.utc)
-    if current_datetime >= date_datetime and payment.expire_time != 2:
+    if current_datetime >= date_datetime and payment.status != 2:
         Deposite.objects.filter(ref=ref).update(status=3)
         return redirect('payment',ref)
     if request.method == 'POST':
@@ -260,15 +260,16 @@ def copyTrade(request, ref):
 @allowed_users(allowed_roles=['client','super'])
 def cancelTrade(request, ref):
     trade = CopiedTrade.objects.filter(ref=ref)
-    # Send mail to admin
+    
     getUser = CopiedTrade.objects.get(ref=ref)
-    getTrade = Trader.objects.get(id=getUser.trade.id)
-    if TakeTrade.objects.filter(trader=getTrade,user=User.objects.get(username=getUser.user.username)).exists():
-        messages.warning(request, 'This trader is active')
-        return redirect('traders')
+    # getTrade = Trader.objects.get(id=getUser.trade.id)
+    # if TakeTrade.objects.filter(trader=getTrade,user=User.objects.get(username=getUser.user.username)).exists():
+    #     messages.warning(request, 'This trader is active')
+    #     return redirect('traders')
     trade.delete()
     # Send message to admin
-    telegram(f'Hello admin, {getUser.user.username} just cancel a trade',)
+    telegram(f'Hello admin, {getUser.user.username} just cancelled a trade',)
+    messages.success(request, 'Successful')
     return redirect('traders')
 
 @login_required(login_url='login')
@@ -573,6 +574,7 @@ def loginuser(request):
                 return redirect('password_reset',username)
             else:
                 if user.role == 'admin':
+                    adminAlert(request,f'Dear admin, {user.username} just logged in')
                     return redirect('admin-home')
                 else:
                     return redirect('home')
